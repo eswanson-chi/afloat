@@ -1,0 +1,32 @@
+<div class="page-header">
+  <h1>
+    My devices
+    <a href="/my_devices/new" class="btn btn-lg btn-success">New My device</a>
+  </h1>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped table-hover">
+      <tr>
+        <th>Opsystem</th>
+        <th>Nickename</th>
+        <th>Active</th>
+        <th>Actions</th>
+      </tr>
+
+      <% @my_devices.each do |my_device| %>
+      <tr>
+        <td><%= my_device.opsystem_id %></td>
+        <td><%= my_device.nickename %></td>
+        <td><%= my_device.active %></td>
+        <td>
+          <a href="/my_devices/<%= my_device.id %>" class="btn btn-primary">Show</a>
+          <a href="/my_devices/<%= my_device.id %>/edit" class="btn btn-warning">Edit</a>
+          <a href="/delete_my_device/<%= my_device.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

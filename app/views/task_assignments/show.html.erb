@@ -1,0 +1,31 @@
+<div class="page-header">
+  <h3>Task Assignment #<%= @task_assignment.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <dl class="dl-horizontal">
+      <dt>Task</dt>
+      <dd><%= @task_assignment.task_id %></dd>
+
+      <dt>Group user</dt>
+      <dd><%= @task_assignment.group_user_id %></dd>
+
+      <dt>Can delegate</dt>
+      <dd><%= @task_assignment.can_delegate %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/task_assignments" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/task_assignments/<%= @task_assignment.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_task_assignment/<%= @task_assignment.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,32 @@
+<div class="page-header">
+  <h1>
+    Opsystems
+    <a href="/opsystems/new" class="btn btn-lg btn-success">New Opsystem</a>
+  </h1>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped table-hover">
+      <tr>
+        <th>Manufacturer</th>
+        <th>Version name</th>
+        <th>Is current</th>
+        <th>Actions</th>
+      </tr>
+
+      <% @opsystems.each do |opsystem| %>
+      <tr>
+        <td><%= opsystem.manufacturer_id %></td>
+        <td><%= opsystem.version_name %></td>
+        <td><%= opsystem.is_current %></td>
+        <td>
+          <a href="/opsystems/<%= opsystem.id %>" class="btn btn-primary">Show</a>
+          <a href="/opsystems/<%= opsystem.id %>/edit" class="btn btn-warning">Edit</a>
+          <a href="/delete_opsystem/<%= opsystem.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

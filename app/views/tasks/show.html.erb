@@ -1,0 +1,43 @@
+<div class="page-header">
+  <h3>Task #<%= @task.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <dl class="dl-horizontal">
+      <dt>App</dt>
+      <dd><%= @task.app_id %></dd>
+
+      <dt>App required</dt>
+      <dd><%= @task.app_required %></dd>
+
+      <dt>Project group</dt>
+      <dd><%= @task.project_group_id %></dd>
+
+      <dt>Activity</dt>
+      <dd><%= @task.activity_id %></dd>
+
+      <dt>Action</dt>
+      <dd><%= @task.action_id %></dd>
+
+      <dt>Name</dt>
+      <dd><%= @task.name %></dd>
+
+      <dt>Description</dt>
+      <dd><%= @task.description %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/tasks" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/tasks/<%= @task.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_task/<%= @task.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>

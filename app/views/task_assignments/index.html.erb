@@ -1,0 +1,32 @@
+<div class="page-header">
+  <h1>
+    Task assignments
+    <a href="/task_assignments/new" class="btn btn-lg btn-success">New Task assignment</a>
+  </h1>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped table-hover">
+      <tr>
+        <th>Task</th>
+        <th>Group user</th>
+        <th>Can delegate</th>
+        <th>Actions</th>
+      </tr>
+
+      <% @task_assignments.each do |task_assignment| %>
+      <tr>
+        <td><%= task_assignment.task_id %></td>
+        <td><%= task_assignment.group_user_id %></td>
+        <td><%= task_assignment.can_delegate %></td>
+        <td>
+          <a href="/task_assignments/<%= task_assignment.id %>" class="btn btn-primary">Show</a>
+          <a href="/task_assignments/<%= task_assignment.id %>/edit" class="btn btn-warning">Edit</a>
+          <a href="/delete_task_assignment/<%= task_assignment.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

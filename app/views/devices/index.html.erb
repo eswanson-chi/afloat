@@ -1,0 +1,35 @@
+<div class="row">
+  <h1>
+    Devices
+    <a href="/devices/new" class="btn btn-lg btn-success">New Device</a>
+  </h1>
+  <div class="col-md-12">
+    <table class="table table-striped table-hover">
+      <tr>
+        <th>Manufacturer</th>
+        <th>Model number</th>
+        <th>Internal name</th>
+        <th>Identifier</th>
+        <th>Name</th>
+        <th>Image</th>
+        <th>Actions</th>
+      </tr>
+
+      <% @devices.each do |device| %>
+      <tr>
+        <td><%= device.manufacturer_id %></td>
+        <td><%= device.model_number %></td>
+        <td><%= device.internal_name %></td>
+        <td><%= device.identifier %></td>
+        <td><%= device.name %></td>
+        <td><%= device.image %></td>
+        <td>
+          <a href="/devices/<%= device.id %>" class="btn btn-primary">Show</a>
+          <a href="/devices/<%= device.id %>/edit" class="btn btn-warning">Edit</a>
+          <a href="/delete_device/<%= device.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

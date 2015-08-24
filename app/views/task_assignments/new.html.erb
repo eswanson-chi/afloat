@@ -1,0 +1,54 @@
+<!-- Validation failure messages -->
+<% if @task_assignment.errors.any? %>
+  <% @task_assignment.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add Task Assignment</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_task_assignment" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for task_id -->
+      <div class="form-group">
+        <label for="task_id" class="control-label">
+          Task
+        </label>
+
+        <input type="text" id="task_id" name="task_id" placeholder="Task" class="form-control" value="<%= @task_assignment.task_id %>">
+      </div>
+
+      <!-- Label and input for group_user_id -->
+      <div class="form-group">
+        <label for="group_user_id" class="control-label">
+          Group user
+        </label>
+
+        <input type="text" id="group_user_id" name="group_user_id" placeholder="Group user" class="form-control" value="<%= @task_assignment.group_user_id %>">
+      </div>
+
+      <!-- Label and input for can_delegate -->
+      <div class="checkbox">
+        <label for="can_delegate">
+          <input type="checkbox" id="can_delegate" name="can_delegate" value="1" <%= "checked" if @task_assignment.can_delegate %>>
+          Can delegate
+        </label>
+      </div>
+
+      <button class="btn btn-success">
+        Create Task Assignment
+      </button>
+      or
+      <a href="/task_assignments">Cancel</a>
+    </form>
+  </div>
+</div>

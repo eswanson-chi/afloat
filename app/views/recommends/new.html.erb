@@ -1,0 +1,63 @@
+<!-- Validation failure messages -->
+<% if @recommend.errors.any? %>
+  <% @recommend.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add Recommend</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_recommend" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for my_app_id -->
+      <div class="form-group">
+        <label for="my_app_id" class="control-label">
+          My app
+        </label>
+
+        <input type="text" id="my_app_id" name="my_app_id" placeholder="My app" class="form-control" value="<%= @recommend.my_app_id %>">
+      </div>
+
+      <!-- Label and input for activity_id -->
+      <div class="form-group">
+        <label for="activity_id" class="control-label">
+          Activity
+        </label>
+
+        <input type="text" id="activity_id" name="activity_id" placeholder="Activity" class="form-control" value="<%= @recommend.activity_id %>">
+      </div>
+
+      <!-- Label and input for action_id -->
+      <div class="form-group">
+        <label for="action_id" class="control-label">
+          Action
+        </label>
+
+        <input type="text" id="action_id" name="action_id" placeholder="Action" class="form-control" value="<%= @recommend.action_id %>">
+      </div>
+
+      <!-- Label and input for is_lifesaver -->
+      <div class="checkbox">
+        <label for="is_lifesaver">
+          <input type="checkbox" id="is_lifesaver" name="is_lifesaver" value="1" <%= "checked" if @recommend.is_lifesaver %>>
+          Is lifesaver
+        </label>
+      </div>
+
+      <button class="btn btn-success">
+        Create Recommend
+      </button>
+      or
+      <a href="/recommends">Cancel</a>
+    </form>
+  </div>
+</div>

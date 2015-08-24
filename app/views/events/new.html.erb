@@ -1,0 +1,64 @@
+<!-- Validation failure messages -->
+<% if @event.errors.any? %>
+  <% @event.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add Event</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_event" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for task_id -->
+      <div class="form-group">
+        <label for="task_id" class="control-label">
+          Task
+        </label>
+
+        <input type="text" id="task_id" name="task_id" placeholder="Task" class="form-control" value="<%= @event.task_id %>">
+      </div>
+
+      <!-- Label and input for my_app_id -->
+      <div class="form-group">
+        <label for="my_app_id" class="control-label">
+          My app
+        </label>
+
+        <input type="text" id="my_app_id" name="my_app_id" placeholder="My app" class="form-control" value="<%= @event.my_app_id %>">
+      </div>
+
+      <!-- Label and input for group_user_id -->
+      <div class="form-group">
+        <label for="group_user_id" class="control-label">
+          Group user
+        </label>
+
+        <input type="text" id="group_user_id" name="group_user_id" placeholder="Group user" class="form-control" value="<%= @event.group_user_id %>">
+      </div>
+
+      <!-- Label and input for project_group_id -->
+      <div class="form-group">
+        <label for="project_group_id" class="control-label">
+          Project group
+        </label>
+
+        <input type="text" id="project_group_id" name="project_group_id" placeholder="Project group" class="form-control" value="<%= @event.project_group_id %>">
+      </div>
+
+      <button class="btn btn-success">
+        Create Event
+      </button>
+      or
+      <a href="/events">Cancel</a>
+    </form>
+  </div>
+</div>

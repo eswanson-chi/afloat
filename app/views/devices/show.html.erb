@@ -1,0 +1,40 @@
+<div class="page-header">
+  <h3>Device #<%= @device.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <dl class="dl-horizontal">
+      <dt>Manufacturer</dt>
+      <dd><%= @device.manufacturer_id %></dd>
+
+      <dt>Model number</dt>
+      <dd><%= @device.model_number %></dd>
+
+      <dt>Internal name</dt>
+      <dd><%= @device.internal_name %></dd>
+
+      <dt>Identifier</dt>
+      <dd><%= @device.identifier %></dd>
+
+      <dt>Name</dt>
+      <dd><%= @device.name %></dd>
+
+      <dt>Image</dt>
+      <dd><%= @device.image %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/devices" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/devices/<%= @device.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_device/<%= @device.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>

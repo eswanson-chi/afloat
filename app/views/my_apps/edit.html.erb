@@ -1,0 +1,46 @@
+<!-- Validation failure messages -->
+<% if @my_app.errors.any? %>
+  <% @my_app.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit My App #<%= @my_app.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_my_app/<%= @my_app.id %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for my_device_id -->
+      <div class="form-group">
+        <label for="my_device_id" class="control-label">
+          My device
+        </label>
+
+        <input type="text" id="my_device_id" name="my_device_id" placeholder="My device" class="form-control" value="<%= @my_app.my_device_id %>">
+      </div>
+
+      <!-- Label and input for app_id -->
+      <div class="form-group">
+        <label for="app_id" class="control-label">
+          App
+        </label>
+
+        <input type="text" id="app_id" name="app_id" placeholder="App" class="form-control" value="<%= @my_app.app_id %>">
+      </div>
+
+      <button class="btn btn-warning">
+        Update My App
+      </button>
+      or
+      <a href="/my_apps/<%= @my_app.id %>">Cancel</a>
+    </form>
+  </div>
+</div>

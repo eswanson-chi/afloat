@@ -1,0 +1,34 @@
+<div class="page-header">
+  <h3>Recommend #<%= @recommend.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <dl class="dl-horizontal">
+      <dt>My app</dt>
+      <dd><%= @recommend.my_app_id %></dd>
+
+      <dt>Activity</dt>
+      <dd><%= @recommend.activity_id %></dd>
+
+      <dt>Action</dt>
+      <dd><%= @recommend.action_id %></dd>
+
+      <dt>Is lifesaver</dt>
+      <dd><%= @recommend.is_lifesaver %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/recommends" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/recommends/<%= @recommend.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_recommend/<%= @recommend.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>

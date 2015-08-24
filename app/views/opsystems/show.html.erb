@@ -1,0 +1,31 @@
+<div class="page-header">
+  <h3>Opsystem #<%= @opsystem.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <dl class="dl-horizontal">
+      <dt>Manufacturer</dt>
+      <dd><%= @opsystem.manufacturer_id %></dd>
+
+      <dt>Version name</dt>
+      <dd><%= @opsystem.version_name %></dd>
+
+      <dt>Is current</dt>
+      <dd><%= @opsystem.is_current %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/opsystems" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/opsystems/<%= @opsystem.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_opsystem/<%= @opsystem.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>

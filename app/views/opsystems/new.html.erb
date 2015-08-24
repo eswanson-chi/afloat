@@ -1,0 +1,54 @@
+<!-- Validation failure messages -->
+<% if @opsystem.errors.any? %>
+  <% @opsystem.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add Opsystem</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_opsystem" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for manufacturer_id -->
+      <div class="form-group">
+        <label for="manufacturer_id" class="control-label">
+          Manufacturer
+        </label>
+
+        <input type="text" id="manufacturer_id" name="manufacturer_id" placeholder="Manufacturer" class="form-control" value="<%= @opsystem.manufacturer_id %>">
+      </div>
+
+      <!-- Label and input for version_name -->
+      <div class="form-group">
+        <label for="version_name" class="control-label">
+          Version name
+        </label>
+
+        <input type="text" id="version_name" name="version_name" placeholder="Version name" class="form-control" value="<%= @opsystem.version_name %>">
+      </div>
+
+      <!-- Label and input for is_current -->
+      <div class="checkbox">
+        <label for="is_current">
+          <input type="checkbox" id="is_current" name="is_current" value="1" <%= "checked" if @opsystem.is_current %>>
+          Is current
+        </label>
+      </div>
+
+      <button class="btn btn-success">
+        Create Opsystem
+      </button>
+      or
+      <a href="/opsystems">Cancel</a>
+    </form>
+  </div>
+</div>

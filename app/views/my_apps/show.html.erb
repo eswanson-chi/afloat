@@ -1,0 +1,28 @@
+<div class="page-header">
+  <h3>My App #<%= @my_app.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <dl class="dl-horizontal">
+      <dt>My device</dt>
+      <dd><%= @my_app.my_device_id %></dd>
+
+      <dt>App</dt>
+      <dd><%= @my_app.app_id %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/my_apps" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/my_apps/<%= @my_app.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_my_app/<%= @my_app.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>

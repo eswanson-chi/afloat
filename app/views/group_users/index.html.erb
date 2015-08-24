@@ -1,0 +1,30 @@
+<div class="page-header">
+  <h1>
+    Group users
+    <a href="/group_users/new" class="btn btn-lg btn-success">New Group user</a>
+  </h1>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped table-hover">
+      <tr>
+        <th>Group</th>
+        <th>User</th>
+        <th>Actions</th>
+      </tr>
+
+      <% @group_users.each do |group_user| %>
+      <tr>
+        <td><%= group_user.group_id %></td>
+        <td><%= group_user.user_id %></td>
+        <td>
+          <a href="/group_users/<%= group_user.id %>" class="btn btn-primary">Show</a>
+          <a href="/group_users/<%= group_user.id %>/edit" class="btn btn-warning">Edit</a>
+          <a href="/delete_group_user/<%= group_user.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

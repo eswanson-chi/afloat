@@ -1,0 +1,90 @@
+<!-- Validation failure messages -->
+<% if @task.errors.any? %>
+  <% @task.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add Task</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_task" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for app_id -->
+      <div class="form-group">
+        <label for="app_id" class="control-label">
+          App
+        </label>
+
+        <input type="text" id="app_id" name="app_id" placeholder="App" class="form-control" value="<%= @task.app_id %>">
+      </div>
+
+      <!-- Label and input for app_required -->
+      <div class="checkbox">
+        <label for="app_required">
+          <input type="checkbox" id="app_required" name="app_required" value="1" <%= "checked" if @task.app_required %>>
+          App required
+        </label>
+      </div>
+
+      <!-- Label and input for project_group_id -->
+      <div class="form-group">
+        <label for="project_group_id" class="control-label">
+          Project group
+        </label>
+
+        <input type="text" id="project_group_id" name="project_group_id" placeholder="Project group" class="form-control" value="<%= @task.project_group_id %>">
+      </div>
+
+      <!-- Label and input for activity_id -->
+      <div class="form-group">
+        <label for="activity_id" class="control-label">
+          Activity
+        </label>
+
+        <input type="text" id="activity_id" name="activity_id" placeholder="Activity" class="form-control" value="<%= @task.activity_id %>">
+      </div>
+
+      <!-- Label and input for action_id -->
+      <div class="form-group">
+        <label for="action_id" class="control-label">
+          Action
+        </label>
+
+        <input type="text" id="action_id" name="action_id" placeholder="Action" class="form-control" value="<%= @task.action_id %>">
+      </div>
+
+      <!-- Label and input for name -->
+      <div class="form-group">
+        <label for="name" class="control-label">
+          Name
+        </label>
+
+        <input type="text" id="name" name="name" placeholder="Name" class="form-control" value="<%= @task.name %>">
+      </div>
+
+      <!-- Label and input for description -->
+      <div class="form-group">
+        <label for="description" class="control-label">
+          Description
+        </label>
+
+        <textarea id="description" name="description" placeholder="Description" class="form-control" rows="3"><%= @task.description %></textarea>
+      </div>
+
+      <button class="btn btn-success">
+        Create Task
+      </button>
+      or
+      <a href="/tasks">Cancel</a>
+    </form>
+  </div>
+</div>

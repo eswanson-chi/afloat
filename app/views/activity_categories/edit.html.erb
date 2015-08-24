@@ -1,0 +1,46 @@
+<!-- Validation failure messages -->
+<% if @activity_category.errors.any? %>
+  <% @activity_category.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit Activity Category #<%= @activity_category.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_activity_category/<%= @activity_category.id %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for category_id -->
+      <div class="form-group">
+        <label for="category_id" class="control-label">
+          Category
+        </label>
+
+        <input type="text" id="category_id" name="category_id" placeholder="Category" class="form-control" value="<%= @activity_category.category_id %>">
+      </div>
+
+      <!-- Label and input for activity_id -->
+      <div class="form-group">
+        <label for="activity_id" class="control-label">
+          Activity
+        </label>
+
+        <input type="text" id="activity_id" name="activity_id" placeholder="Activity" class="form-control" value="<%= @activity_category.activity_id %>">
+      </div>
+
+      <button class="btn btn-warning">
+        Update Activity Category
+      </button>
+      or
+      <a href="/activity_categories/<%= @activity_category.id %>">Cancel</a>
+    </form>
+  </div>
+</div>
