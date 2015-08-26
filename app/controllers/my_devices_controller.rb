@@ -13,6 +13,7 @@ class MyDevicesController < ApplicationController
 
   def create
     @my_device = MyDevice.new
+    @my_device.device_id = params[:device_id]
     @my_device.opsystem_id = params[:opsystem_id]
     @my_device.nickename = params[:nickename]
     @my_device.active = params[:active]
@@ -31,6 +32,7 @@ class MyDevicesController < ApplicationController
   def update
     @my_device = MyDevice.find(params[:id])
 
+    @my_device.device_id = params[:device_id]
     @my_device.opsystem_id = params[:opsystem_id]
     @my_device.nickename = params[:nickename]
     @my_device.active = params[:active]

@@ -80,19 +80,30 @@ puts "There are now #{Device.count} devices in the database."
 
 opsystem_info = [
 { :manufacturer_id => 1, :version_name => 'iPhone OS 1.0', :is_current => 0 },
+{ :manufacturer_id => 1, :version_name => 'iPhone OS 1.1', :is_current => 0 },
 { :manufacturer_id => 1, :version_name => 'iPhone OS 2.0', :is_current => 0 },
+{ :manufacturer_id => 1, :version_name => 'iPhone OS 2.1', :is_current => 0 },
 { :manufacturer_id => 1, :version_name => 'iPhone OS 3.0', :is_current => 0 },
+{ :manufacturer_id => 1, :version_name => 'iPhone OS 3.1.1 (8 GB "MC" model)', :is_current => 0 },
 { :manufacturer_id => 1, :version_name => 'iPhone OS 3.1.3', :is_current => 0 },
+{ :manufacturer_id => 1, :version_name => 'iOS 3.2', :is_current => 0 },
 { :manufacturer_id => 1, :version_name => 'iOS 4.0', :is_current => 0 },
+{ :manufacturer_id => 1, :version_name => 'iOS 4.1', :is_current => 0 },
 { :manufacturer_id => 1, :version_name => 'iOS 4.2.1', :is_current => 0 },
 { :manufacturer_id => 1, :version_name => 'iOS 4.2.2', :is_current => 0 },
 { :manufacturer_id => 1, :version_name => 'iOS 5.0', :is_current => 0 },
+{ :manufacturer_id => 1, :version_name => 'iOS 5.1', :is_current => 0 },
+{ :manufacturer_id => 1, :version_name => 'iOS 5.1.1', :is_current => 0 },
 { :manufacturer_id => 1, :version_name => 'iOS 6.0', :is_current => 0 },
+{ :manufacturer_id => 1, :version_name => 'iOS 6.0.1', :is_current => 0 },
 { :manufacturer_id => 1, :version_name => 'iOS 6.1.6', :is_current => 0 },
 { :manufacturer_id => 1, :version_name => 'iOS 7.0', :is_current => 0 },
+{ :manufacturer_id => 1, :version_name => 'iOS 7.0.3', :is_current => 0 },
 { :manufacturer_id => 1, :version_name => 'iOS 7.1.2', :is_current => 0 },
 { :manufacturer_id => 1, :version_name => 'iOS 8.0', :is_current => 0 },
-{ :manufacturer_id => 1, :version_name => 'iOS 8.4.1', :is_current => 1 }
+{ :manufacturer_id => 1, :version_name => 'iOS 8.1', :is_current => 0 },
+{ :manufacturer_id => 1, :version_name => 'iOS 8.4', :is_current => 0 },
+{ :manufacturer_id => 1, :version_name => 'iOS 8.4.1', :is_current => 0 }
 ]
 
 opsystem_info.each do |os_hash|

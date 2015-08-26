@@ -1,48 +1,27 @@
-class ActionsController < ApplicationController
-  def index
-    @actions = Action.all
+class AppleController < ApplicationController
+    def get_itunes_app_form
+    # Nothing to do here.
+    render("get_itunes_app_form.html.erb")
   end
 
-  def show
-    @action = Action.find(params[:id])
-  end
+  def get_itunes_app
+    @lat = params[:user_latitude]
+    @lng = params[:user_longitude]
 
-  def new
-    @action = Action.new
-  end
+    forecast_url = "https://api.forecast.io/forecast/c671ef54158ef77726b697e459bc200f/" + @lat +"," + @lng
+    fore_raw_data = open(forecast_url).read
+    fore_parsed_data = JSON.parse(fore_raw_data)
 
-  def create
-    @action = Action.new
-    @action.name = params[:name]
+    @current_temperature = fore_parsed_data["currently"]["temperature"]
 
-    if @action.save
-      redirect_to "/actions", :notice => "Action created successfully."
-    else
-      render 'new'
-    end
-  end
+    @current_summary = fore_parsed_data["currently"]["summary"]
 
-  def edit
-    @action = Action.find(params[:id])
-  end
+    @summary_of_next_sixty_minutes = fore_parsed_data["minutely"]["summary"]
 
-  def update
-    @action = Action.find(params[:id])
+    @summary_of_next_several_hours = fore_parsed_data["hourly"]["summary"]
 
-    @action.name = params[:name]
+    @summary_of_next_several_days = fore_parsed_data["daily"]["summary"]
 
-    if @action.save
-      redirect_to "/actions", :notice => "Action updated successfully."
-    else
-      render 'edit'
-    end
-  end
-
-  def destroy
-    @action = Action.find(params[:id])
-
-    @action.destroy
-
-    redirect_to "/actions", :notice => "Action deleted."
+    render("coords_to_weather.html.erb")
   end
 end

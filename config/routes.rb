@@ -7,6 +7,10 @@ Rails.application.routes.draw do
   # Home
   get "/", :controller => "events", :action => "index"
 
+  # Get details from Apple
+  get "/new_itunes_app_form", :controller => "apple", :action => "get_itunes_app_form"
+  post "/new_itunes_app", :controller => "apple", :action => "get_itunes_app"
+
   # Routes for the Event resource:
   # CREATE
   get "/events/new", :controller => "events", :action => "new"

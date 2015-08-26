@@ -1,6 +1,7 @@
 class CreateMyDevices < ActiveRecord::Migration
   def change
     create_table :my_devices do |t|
+      t.integer :device_id
       t.integer :opsystem_id
       t.string :nickename
       t.boolean :active
