@@ -1,0 +1,51 @@
+<!-- Validation failure messages -->
+<% if @app.errors.any? %>
+<% @app.errors.full_messages.each do |message| %>
+<div class="alert alert-dismissable alert-danger">
+  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+  <%= message %>
+</div>
+<% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>iTunes Query Results (<%= @app_count %>)</h3><a href="/apps">Go Back</a>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-9">
+          <div class="panel panel-default">
+            <% @app_results.each do |app| %>
+            <form action="/create_app" method="post">
+              <!-- Hidden input for authenticity token to protect from forgery -->
+              <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+              <!-- Label and input for itunes_id -->
+              <input name="itunes_id" type="hidden" value="<%= app["trackId"] %>">
+              <!-- Label and input for name -->
+              <input name="name" type="hidden" value="<%= app["trackName"] %>">
+              <!-- Label and input for image -->
+              <input name="image" type="hidden" value="<%= app["artworkUrl512"] %>">
+              <table class="table table-striped table-hover" width="100%">
+                <tr width="100%">
+                  <th width=70></th>
+                  <th></th>
+                  <th width=120></th>
+                </tr>
+                <tr>
+                  <td><img src="<%= app["artworkUrl512"] %>" width=65></a></td>
+                  <td><h3><%= app["trackCensoredName"] %></h3><%= app["artistName"] %></td>
+                  <td><button class="btn btn-success">Add App</button><a href="<%= app["trackViewUrl"] %>" target="blank">View on iTunes</a></td>
+                </tr>
+              </table>
+            </form>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
