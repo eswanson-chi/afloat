@@ -1,4 +1,6 @@
 class TaskAssignmentsController < ApplicationController
+  before_action :authenticate_user!
+
   def index
     @task_assignments = TaskAssignment.all
   end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150825032301) do
+ActiveRecord::Schema.define(version: 20150827002159) do
 
   create_table "actions", force: :cascade do |t|
     t.string   "name"
@@ -136,8 +136,9 @@ ActiveRecord::Schema.define(version: 20150825032301) do
 
   create_table "my_devices", force: :cascade do |t|
     t.integer  "device_id"
+    t.integer  "user_id"
     t.integer  "opsystem_id"
-    t.string   "nickename"
+    t.string   "nickname"
     t.boolean  "active"
     t.datetime "created_at"
     t.datetime "updated_at"

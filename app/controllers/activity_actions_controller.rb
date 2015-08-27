@@ -1,4 +1,6 @@
 class ActivityActionsController < ApplicationController
+  before_action :authenticate_user!
+
   def index
     @activity_actions = ActivityAction.all
   end

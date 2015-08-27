@@ -1,6 +1,8 @@
 class MyAppsController < ApplicationController
+  before_action :authenticate_user!
+
   def index
-    @my_apps = MyApp.all
+    @my_apps = MyApp.where(:my_device_id => MyDevice.where(:user_id => current_user.id))
   end
 
   def show

@@ -1,14 +1,12 @@
 class AppsController < ApplicationController
+  before_action :authenticate_user!
+
   def index
     @apps = App.all
   end
 
   def show
     @app = App.find(params[:id])
-  end
-
-  def new
-    @app = App.new
   end
 
   def create
@@ -20,7 +18,7 @@ class AppsController < ApplicationController
     if @app.save
       redirect_to "/apps", :notice => "App created successfully."
     else
-      render 'new'
+      render '/new_itunes_app'
     end
   end
 

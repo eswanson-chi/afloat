@@ -1,4 +1,6 @@
 class ActivityCategoriesController < ApplicationController
+  before_action :authenticate_user!
+
   def index
     @activity_categories = ActivityCategory.all
   end

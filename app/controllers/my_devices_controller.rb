@@ -1,6 +1,8 @@
 class MyDevicesController < ApplicationController
+  before_action :authenticate_user!
+
   def index
-    @my_devices = MyDevice.all
+    @my_devices = MyDevice.where(:user_id => current_user.id)
   end
 
   def show
@@ -14,8 +16,9 @@ class MyDevicesController < ApplicationController
   def create
     @my_device = MyDevice.new
     @my_device.device_id = params[:device_id]
+    @my_device.user_id = params[:user_id]
     @my_device.opsystem_id = params[:opsystem_id]
-    @my_device.nickename = params[:nickename]
+    @my_device.nickname = params[:nickname]
     @my_device.active = params[:active]
 
     if @my_device.save
@@ -33,8 +36,9 @@ class MyDevicesController < ApplicationController
     @my_device = MyDevice.find(params[:id])
 
     @my_device.device_id = params[:device_id]
+    @my_device.user_id = params[:user_id]
     @my_device.opsystem_id = params[:opsystem_id]
-    @my_device.nickename = params[:nickename]
+    @my_device.nickname = params[:nickname]
     @my_device.active = params[:active]
 
     if @my_device.save

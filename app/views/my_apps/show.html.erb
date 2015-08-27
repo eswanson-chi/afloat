@@ -6,10 +6,13 @@
   <div class="col-md-12">
     <dl class="dl-horizontal">
       <dt>My device</dt>
-      <dd><%= @my_app.my_device_id %></dd>
+      <dd><%= @my_app.my_device.nickname%></dd>
 
       <dt>App</dt>
-      <dd><%= @my_app.app_id %></dd>
+      <dd><%= @my_app.app.name %></dd>
+
+      <dt></dt>
+      <dd><img src="<%= @my_app.app.image %>" width=150></dd>
 
     </dl>
 

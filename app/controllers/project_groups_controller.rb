@@ -1,4 +1,6 @@
 class ProjectGroupsController < ApplicationController
+  before_action :authenticate_user!
+
   def index
     @project_groups = ProjectGroup.all
   end

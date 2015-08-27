@@ -9,7 +9,7 @@
 <% end %>
 
 <div class="page-header">
-  <h3>Edit My Device #<%= @my_device.id %></h3>
+  <h3>Edit <%= @my_device.nickname %></h3>
 </div>
 
 <div class="row">
@@ -18,31 +18,27 @@
       <!-- Hidden input for authenticity token to protect from forgery -->
       <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
 
-      <!-- Label and input for device_id -->
-      <div class="form-group">
-        <label for="device_id" class="control-label">
-          Device
-        </label>
+      <!-- Label and input for user_id -->
+      <input name="user_id" type="hidden" value="<%= current_user.id %>">
 
-        <input type="text" id="device_id" name="device_id" placeholder="Device" class="form-control" value="<%= @my_device.device_id %>">
-      </div>
+      <!-- Label and input for device_id -->
+      <input id="device_id" name="device_id" type="hidden" value="<%= @my_device.device_id %>">
 
       <!-- Label and input for opsystem_id -->
       <div class="form-group">
         <label for="opsystem_id" class="control-label">
-          Opsystem
+          Operating System
         </label>
-
-        <input type="text" id="opsystem_id" name="opsystem_id" placeholder="Opsystem" class="form-control" value="<%= @my_device.opsystem_id %>">
+        <%= select_tag :opsystem_id, options_from_collection_for_select(Opsystem.order("id DESC"), :id, :version_name, @my_device.opsystem_id), :class => "form-control" %>
       </div>
 
-      <!-- Label and input for nickename -->
+      <!-- Label and input for nickname -->
       <div class="form-group">
-        <label for="nickename" class="control-label">
-          Nickename
+        <label for="nickname" class="control-label">
+          Nickname
         </label>
 
-        <input type="text" id="nickename" name="nickename" placeholder="Nickename" class="form-control" value="<%= @my_device.nickename %>">
+        <input type="text" id="nickname" name="nickname" placeholder="Nickname" class="form-control" value="<%= @my_device.nickname %>">
       </div>
 
       <!-- Label and input for active -->

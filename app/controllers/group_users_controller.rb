@@ -1,4 +1,6 @@
 class GroupUsersController < ApplicationController
+  before_action :authenticate_user!
+
   def index
     @group_users = GroupUser.all
   end

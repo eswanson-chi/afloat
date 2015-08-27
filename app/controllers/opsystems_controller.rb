@@ -1,4 +1,6 @@
 class OpsystemsController < ApplicationController
+  before_action :authenticate_user!
+
   def index
     @opsystems = Opsystem.all
   end

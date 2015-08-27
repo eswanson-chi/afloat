@@ -1,7 +1,7 @@
 <div class="page-header">
   <h1>
-    My devices
-    <a href="/my_devices/new" class="btn btn-lg btn-success">New My device</a>
+    My Devices
+    <a href="/my_devices/new" class="btn btn-lg btn-success">New Device</a>
   </h1>
 </div>
 
@@ -10,17 +10,19 @@
     <table class="table table-striped table-hover">
       <tr>
         <th>Device</th>
-        <th>Opsystem</th>
-        <th>Nickename</th>
+        <th>User</th>
+        <th>Operating System</th>
+        <th>Nickname</th>
         <th>Active</th>
         <th>Actions</th>
       </tr>
 
       <% @my_devices.each do |my_device| %>
       <tr>
-        <td><%= my_device.device_id %></td>
-        <td><%= my_device.opsystem_id %></td>
-        <td><%= my_device.nickename %></td>
+        <td><%= my_device.device.name %></td>
+        <td><%= my_device.user.email %></td>
+        <td><%= my_device.opsystem.version_name %></td>
+        <td><%= my_device.nickname %></td>
         <td><%= my_device.active %></td>
         <td>
           <a href="/my_devices/<%= my_device.id %>" class="btn btn-primary">Show</a>
