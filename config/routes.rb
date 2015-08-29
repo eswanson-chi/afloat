@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
 
   # Home
-  get "/", :controller => "recommends", :action => "index"
+  get "/", :controller => "my_apps", :action => "index"
 
   # Get details from Apple
   get "/new_itunes_app_form", :controller => "apple", :action => "get_itunes_app_form"

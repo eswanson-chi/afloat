@@ -46,9 +46,9 @@
               <li><a href="/new_itunes_app_form">Add An iTunes App</a></li>
               <li><a href="/my_apps">My Apps</a></li>
               <li><a href="/my_devices">My Devices</a></li>
+              <li><a href="/recommends">Recommendations</a></li>
         <!-- <li><a href="/groups">My Groups</a></li>
               <li><a href="/group_users">Group Users</a></li>
-              <li><a href="/recommends">Recommendations</a></li>
               <li><a href="/events">Events</a></li>
               <li><a href="/task_assignments">Task Assignments</a></li>
               <li><a href="/tasks">Tasks</a></li>
@@ -85,74 +85,6 @@
 <div class="container">
     <div class="row">
       <div class="col-md-2 hidden-xs hidden-sm">
-      <div class="accordion" id="accordion2">
-        <div class="accordion-group">
-          <div class="accordion-heading">
-            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
-              Recommendations (<%= Recommend.where( :user_id => current_user.id ).count %>)
-            </a>
-          </div>
-          <div id="collapseOne" class="accordion-body collapse">
-            <div class="accordion-inner">
-              <table>
-              <% Recommend.where( :user_id => current_user.id ).each do |rcmd| %>
-                <tr>
-                  <td><a href="/recommends"><%= rcmd.my_app.app.name %></a></td>
-                </tr>
-                <% end %>
-              </table>
-            </div>
-        </div>
-        <div class="accordion-group">
-          <div class="accordion-heading">
-            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
-              Lifesavers (<%= Recommend.where( :user_id => current_user.id, :is_lifesaver => true).count %>)
-            </a>
-          </div>
-          <div id="collapseTwo" class="accordion-body collapse">
-            <div class="accordion-inner">
-              <table>
-                <% Recommend.where( :user_id => current_user.id, :is_lifesaver => true).each do |rcmd| %>
-                <tr>
-                  <td><a href="/recommends"><%= rcmd.my_app.app.name %></a></td>
-                </tr>
-                <% end %>
-              </table>
-            </div>
-          </div>
-        </div>
-        <div class="accordion-group">
-          <div class="accordion-heading">
-            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseThree">
-              Groups (<%= Group.where( :owner_user_id => current_user.id ).count %>)
-            </a>
-          </div>
-          <div id="collapseThree" class="accordion-body collapse">
-            <div class="accordion-inner">
-              <table>
-               <% Group.where( :owner_user_id => current_user.id ).each do |group| %>
-                <tr>
-                  <td><a href="/groups"><%= group.name %></a></td>
-                </tr>
-                <% end %>
-              </table>
-            </div>
-          </div>
-        </div>
-        <div class="accordion-group">
-          <div class="accordion-heading">
-            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseFour">
-              Projects
-            </a>
-          </div>
-          <div id="collapseFour" class="accordion-body collapse">
-            <div class="accordion-inner">
-               Coming soon!
-            </div>
-            </div>
-          </div>
-        </div>
-      </div>
 
       </div>
         <div class="col-md-10 hidden-xs hidden-sm">
