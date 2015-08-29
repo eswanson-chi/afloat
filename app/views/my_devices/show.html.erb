@@ -6,16 +6,17 @@
   <div class="col-md-12">
     <dl class="dl-horizontal">
       <dt>Device</dt>
-      <dd><%= @my_device.device_id %></dd>
+      <dd><%= @my_device.device.name %></dd>
 
-      <dt>User</dt>
-      <dd><%= @my_device.user_id %></dd>
 
       <dt>Opsystem</dt>
-      <dd><%= @my_device.opsystem_id %></dd>
+      <dd><%= @my_device.opsystem.version_name%></dd>
 
       <dt>Nickname</dt>
       <dd><%= @my_device.nickname %></dd>
+
+
+      <dd><img src="/img/<%= @my_device.device.image %>" width=150></dd>
 
       <dt>Active</dt>
       <dd><%= @my_device.active %></dd>

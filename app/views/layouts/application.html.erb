@@ -46,15 +46,14 @@
               <li><a href="/new_itunes_app_form">Add An iTunes App</a></li>
               <li><a href="/my_apps">My Apps</a></li>
               <li><a href="/my_devices">My Devices</a></li>
-              <li><a href="/groups">Groups</a></li>
-              <li><a href="/recommends">Recommends</a></li>
+        <!-- <li><a href="/groups">My Groups</a></li>
+              <li><a href="/group_users">Group Users</a></li>
+              <li><a href="/recommends">Recommendations</a></li>
               <li><a href="/events">Events</a></li>
               <li><a href="/task_assignments">Task Assignments</a></li>
               <li><a href="/tasks">Tasks</a></li>
               <li><a href="/project_groups">Project Groups</a></li>
               <li><a href="/projects">Projects</a></li>
-              <!-- <li><a href="/group_users">Group Users</a></li>
-
               <li><a href="/recommends">Recommends</a></li>
               <li><a href="/my_apps">My Apps</a></li>
               <li><a href="/activity_actions">Activity Actions</a></li>
@@ -90,48 +89,66 @@
         <div class="accordion-group">
           <div class="accordion-heading">
             <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
-              Lifesavers
+              Recommendations (<%= Recommend.where( :user_id => current_user.id ).count %>)
             </a>
           </div>
           <div id="collapseOne" class="accordion-body collapse">
             <div class="accordion-inner">
-              Anim pariatur cliche...
+              <table>
+              <% Recommend.where( :user_id => current_user.id ).each do |rcmd| %>
+                <tr>
+                  <td><a href="/recommends"><%= rcmd.my_app.app.name %></a></td>
+                </tr>
+                <% end %>
+              </table>
             </div>
-          </div>
         </div>
         <div class="accordion-group">
           <div class="accordion-heading">
             <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
-              Groups
+              Lifesavers (<%= Recommend.where( :user_id => current_user.id, :is_lifesaver => true).count %>)
             </a>
           </div>
           <div id="collapseTwo" class="accordion-body collapse">
             <div class="accordion-inner">
-              Anim pariatur cliche...
+              <table>
+                <% Recommend.where( :user_id => current_user.id, :is_lifesaver => true).each do |rcmd| %>
+                <tr>
+                  <td><a href="/recommends"><%= rcmd.my_app.app.name %></a></td>
+                </tr>
+                <% end %>
+              </table>
             </div>
           </div>
         </div>
         <div class="accordion-group">
           <div class="accordion-heading">
             <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseThree">
-              Projects
+              Groups (<%= Group.where( :owner_user_id => current_user.id ).count %>)
             </a>
           </div>
           <div id="collapseThree" class="accordion-body collapse">
             <div class="accordion-inner">
-              Anim pariatur cliche...
+              <table>
+               <% Group.where( :owner_user_id => current_user.id ).each do |group| %>
+                <tr>
+                  <td><a href="/groups"><%= group.name %></a></td>
+                </tr>
+                <% end %>
+              </table>
             </div>
           </div>
         </div>
         <div class="accordion-group">
           <div class="accordion-heading">
             <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseFour">
-              Favorites
+              Projects
             </a>
           </div>
           <div id="collapseFour" class="accordion-body collapse">
             <div class="accordion-inner">
-              Anim pariatur cliche...
+               Coming soon!
+            </div>
             </div>
           </div>
         </div>
