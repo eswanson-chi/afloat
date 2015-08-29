@@ -3,6 +3,8 @@ class GroupsController < ApplicationController
 
   def index
     @groups = Group.all
+    @user = User.all
+
   end
 
   def show

@@ -18,14 +18,22 @@
       <!-- Hidden input for authenticity token to protect from forgery -->
       <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
 
-      <!-- Label and input for my_app_id -->
-      <div class="form-group">
-        <label for="my_app_id" class="control-label">
-          My app
-        </label>
+      <!-- Label and input for user_id -->
+      <input name="user_id" type="hidden" value="<%= current_user.id %>">
 
-        <input type="text" id="my_app_id" name="my_app_id" placeholder="My app" class="form-control" value="<%= @recommend.my_app_id %>">
-      </div>
+      <!-- Label and input for my_app_id -->
+      <input name="my_app_id" type="hidden" value="<%= @my_app_id %>">
+
+      <table class="table">
+        <tr>
+          <th></th>
+          <th></th>
+        </tr>
+        <tr>
+          <td><img src="<%= @app_image %>" width=70></td>
+          <td><%= @app_name %></td>
+        </tr>
+      </table>
 
       <!-- Label and input for activity_id -->
       <div class="form-group">
@@ -33,7 +41,7 @@
           Activity
         </label>
 
-        <input type="text" id="activity_id" name="activity_id" placeholder="Activity" class="form-control" value="<%= @recommend.activity_id %>">
+        <%= select_tag :activity_id, options_from_collection_for_select(Activity.order("name ASC"), :id, :name, @recommend.activity_id), :class => "form-control" %>
       </div>
 
       <!-- Label and input for action_id -->
@@ -42,7 +50,7 @@
           Action
         </label>
 
-        <input type="text" id="action_id" name="action_id" placeholder="Action" class="form-control" value="<%= @recommend.action_id %>">
+        <%= select_tag :action_id, options_from_collection_for_select(Action.order("name ASC"), :id, :name, @recommend.action_id), :class => "form-control" %>
       </div>
 
       <!-- Label and input for is_lifesaver -->
@@ -57,7 +65,7 @@
         Create Recommend
       </button>
       or
-      <a href="/recommends">Cancel</a>
+      <a href="/my_apps">Cancel</a>
     </form>
   </div>
 </div>

@@ -10,6 +10,7 @@
     <table class="table table-striped table-hover">
       <tr>
         <th>My Device</th>
+        <th></th>
         <th>App</th>
         <th>Actions</th>
       </tr>
@@ -17,11 +18,13 @@
       <% @my_apps.each do |my_app| %>
       <tr>
         <td><%= my_app.my_device.nickname %></td>
+        <td><img src="<%= my_app.app.image %>" width=70></td>
         <td><%= my_app.app.name %></td>
         <td>
           <a href="/my_apps/<%= my_app.id %>" class="btn btn-primary">Show</a>
           <a href="/my_apps/<%= my_app.id %>/edit" class="btn btn-warning">Edit</a>
           <a href="/delete_my_app/<%= my_app.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          <form action="/recommends/new" method="post"><input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>"><input type="hidden" name="my_app_id" value="<%= my_app.id %>"><input type="hidden" name="app_name" value="<%= my_app.app.name %>"><input type="hidden" name="app_image" value="<%= my_app.app.image %>"><button class="btn btn-default">Recommend App</button></form>
         </td>
       </tr>
       <% end %>

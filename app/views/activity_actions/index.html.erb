@@ -1,6 +1,6 @@
 <div class="page-header">
   <h1>
-    Activity actions
+    Activity Actions
     <a href="/activity_actions/new" class="btn btn-lg btn-success">New Activity action</a>
   </h1>
 </div>
@@ -16,12 +16,12 @@
 
       <% @activity_actions.each do |activity_action| %>
       <tr>
-        <td><%= activity_action.activity_id %></td>
-        <td><%= activity_action.action_id %></td>
+        <td><%= activity_action.activity.name %></td>
+        <td><%= activity_action.action.name %></td>
         <td>
-          <a href="/activity_actions/<%= activity_action.id %>" class="btn btn-primary">Show</a>
+
           <a href="/activity_actions/<%= activity_action.id %>/edit" class="btn btn-warning">Edit</a>
-          <a href="/delete_activity_action/<%= activity_action.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+
         </td>
       </tr>
       <% end %>

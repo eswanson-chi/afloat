@@ -18,15 +18,29 @@
       <!-- Hidden input for authenticity token to protect from forgery -->
       <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
 
-      <!-- Label and input for category_id -->
+      <!-- Label and input for activity_id -->
+      <div class="form-group">
+        <label for="activity_id" class="control-label">
+          Activity
+        </label>
+
+        <%= select_tag :activity_id, options_from_collection_for_select(Activity.order("name ASC"), :id, :name, @activity_category.activity_id), :class => "form-control" %>
+      </div>
+
+      <!-- Label and input for activity_id -->
       <div class="form-group">
         <label for="category_id" class="control-label">
           Category
         </label>
 
-        <input type="text" id="user_latitude" name="user_latitude" placeholder="Category" class="form-control">
+        <%= select_tag :category_id, options_from_collection_for_select(Category.order("name ASC"), :id, :name, @activity_category.category_id), :class => "form-control" %>
       </div>
-
+      <button class="btn btn-success">
+        Create Activity-Category
+      </button>
+      or
+      <a href="/categories">Cancel</a>
+    </form>
 
     </form>
   </div>

@@ -18,14 +18,8 @@
       <!-- Hidden input for authenticity token to protect from forgery -->
       <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
 
-      <!-- Label and input for owner_user_id -->
-      <div class="form-group">
-        <label for="owner_user_id" class="control-label">
-          Owner user
-        </label>
-
-        <input type="text" id="owner_user_id" name="owner_user_id" placeholder="Owner user" class="form-control" value="<%= @group.owner_user_id %>">
-      </div>
+      <!-- Label and input for user_id -->
+      <input name="owner_user_id" type="hidden" value="<%= current_user.id %>">
 
       <!-- Label and input for name -->
       <div class="form-group">

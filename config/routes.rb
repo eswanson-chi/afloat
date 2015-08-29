@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
 
   # Home
-  get "/", :controller => "events", :action => "index"
+  get "/", :controller => "recommends", :action => "index"
 
   # Get details from Apple
   get "/new_itunes_app_form", :controller => "apple", :action => "get_itunes_app_form"
@@ -132,7 +132,7 @@ Rails.application.routes.draw do
 
   # Routes for the Recommend resource:
   # CREATE
-  get "/recommends/new", :controller => "recommends", :action => "new"
+  post "/recommends/new", :controller => "recommends", :action => "new"
   post "/create_recommend", :controller => "recommends", :action => "create"
 
   # READ

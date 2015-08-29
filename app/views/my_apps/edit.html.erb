@@ -18,13 +18,15 @@
       <!-- Hidden input for authenticity token to protect from forgery -->
       <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
 
+      <!-- Label and input for user_id -->
+      <input name="user_id" type="hidden" value="<%= current_user.id %>">
+
       <!-- Label and input for my_device_id -->
       <div class="form-group">
         <label for="my_device_id" class="control-label">
-          My device
+          Device Nickname
         </label>
-
-        <input type="text" id="my_device_id" name="my_device_id" placeholder="My device" class="form-control" value="<%= @my_app.my_device_id %>">
+        <%= select_tag :my_device_id, options_from_collection_for_select(MyDevice.where( :user_id == current_user.id).order("nickname ASC"), :id, :nickname, @my_app.my_device_id), :class => "form-control" %>
       </div>
 
       <!-- Label and input for app_id -->
@@ -33,7 +35,7 @@
           App
         </label>
 
-        <input type="text" id="app_id" name="app_id" placeholder="App" class="form-control" value="<%= @my_app.app_id %>">
+        <%= select_tag :app_id, options_from_collection_for_select(App.order("name ASC"), :id, :name, @my_app.app_id), :class => "form-control" %>
       </div>
 
       <button class="btn btn-warning">

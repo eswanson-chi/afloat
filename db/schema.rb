@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150827002159) do
+ActiveRecord::Schema.define(version: 20150828215649) do
 
   create_table "actions", force: :cascade do |t|
     t.string   "name"
@@ -132,6 +132,7 @@ ActiveRecord::Schema.define(version: 20150827002159) do
     t.integer  "app_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
 
   create_table "my_devices", force: :cascade do |t|
@@ -173,6 +174,8 @@ ActiveRecord::Schema.define(version: 20150827002159) do
     t.boolean  "is_lifesaver"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
+    t.integer  "group_id"
   end
 
   create_table "task_assignments", force: :cascade do |t|
@@ -181,6 +184,7 @@ ActiveRecord::Schema.define(version: 20150827002159) do
     t.boolean  "can_delegate"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "event_id"
   end
 
   create_table "tasks", force: :cascade do |t|

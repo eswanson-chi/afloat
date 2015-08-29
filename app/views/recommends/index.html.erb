@@ -1,7 +1,6 @@
 <div class="page-header">
   <h1>
     Recommends
-    <a href="/recommends/new" class="btn btn-lg btn-success">New Recommend</a>
   </h1>
 </div>
 
@@ -9,21 +8,22 @@
   <div class="col-md-12">
     <table class="table table-striped table-hover">
       <tr>
+        <th></th>
         <th>My app</th>
         <th>Activity</th>
         <th>Action</th>
-        <th>Is lifesaver</th>
+        <th>Is Lifesaver</th>
         <th>Actions</th>
       </tr>
 
       <% @recommends.each do |recommend| %>
       <tr>
-        <td><%= recommend.my_app_id %></td>
-        <td><%= recommend.activity_id %></td>
-        <td><%= recommend.action_id %></td>
-        <td><%= recommend.is_lifesaver %></td>
+        <td><img src="<%= recommend.my_app.app.image %>" width=50></td>
+        <td><%= recommend.my_app.app.name %></td>
+        <td><%= recommend.activity.name %></td>
+        <td><%= recommend.action.name %></td>
+        <td><%= recommend.is_lifesaver %></td><!-- <img src="/img/check.png" width=20></td> -->
         <td>
-          <a href="/recommends/<%= recommend.id %>" class="btn btn-primary">Show</a>
           <a href="/recommends/<%= recommend.id %>/edit" class="btn btn-warning">Edit</a>
           <a href="/delete_recommend/<%= recommend.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
         </td>

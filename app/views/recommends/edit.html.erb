@@ -24,7 +24,7 @@
           My app
         </label>
 
-        <input type="text" id="my_app_id" name="my_app_id" placeholder="My app" class="form-control" value="<%= @recommend.my_app_id %>">
+        <input type="text" id="my_app_id" name="my_app_id" placeholder="My app" class="form-control" value="<%= @recommend.my_app.app.name %>">
       </div>
 
       <!-- Label and input for activity_id -->
@@ -33,7 +33,7 @@
           Activity
         </label>
 
-        <input type="text" id="activity_id" name="activity_id" placeholder="Activity" class="form-control" value="<%= @recommend.activity_id %>">
+        <input type="text" id="activity_id" name="activity_id" placeholder="Activity" class="form-control" value="<%= @recommend.activity.name %>">
       </div>
 
       <!-- Label and input for action_id -->
@@ -42,7 +42,7 @@
           Action
         </label>
 
-        <input type="text" id="action_id" name="action_id" placeholder="Action" class="form-control" value="<%= @recommend.action_id %>">
+        <input type="text" id="action_id" name="action_id" placeholder="Action" class="form-control" value="<%= @recommend.action.name %>">
       </div>
 
       <!-- Label and input for is_lifesaver -->
@@ -57,7 +57,7 @@
         Update Recommend
       </button>
       or
-      <a href="/recommends/<%= @recommend.id %>">Cancel</a>
+      <a href="/recommends">Cancel</a>
     </form>
   </div>
 </div>

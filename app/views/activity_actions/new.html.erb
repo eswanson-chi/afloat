@@ -23,8 +23,7 @@
         <label for="activity_id" class="control-label">
           Activity
         </label>
-
-        <input type="text" id="activity_id" name="activity_id" placeholder="Activity" class="form-control" value="<%= @activity_action.activity_id %>">
+        <%= select_tag :activity_id, options_from_collection_for_select(Activity.order("name ASC"), :id, :name, @activity_action.activity_id), :class => "form-control" %>
       </div>
 
       <!-- Label and input for action_id -->
@@ -32,9 +31,9 @@
         <label for="action_id" class="control-label">
           Action
         </label>
-
-        <input type="text" id="action_id" name="action_id" placeholder="Action" class="form-control" value="<%= @activity_action.action_id %>">
+        <%= select_tag :action_id, options_from_collection_for_select(Action.order("name ASC"), :id, :name, @activity_action.action_id), :class => "form-control" %>
       </div>
+
 
       <button class="btn btn-success">
         Create Activity Action

@@ -17,6 +17,7 @@ class MyAppsController < ApplicationController
     @my_app = MyApp.new
     @my_app.my_device_id = params[:my_device_id]
     @my_app.app_id = params[:app_id]
+    @my_app.user_id = params[:user_id]
 
     if @my_app.save
       redirect_to "/my_apps", :notice => "My app created successfully."
