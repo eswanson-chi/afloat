@@ -1,4 +1,4 @@
-class CreateOpsystems < ActiveRecord::Migration
+class CreateOpsystems < ActiveRecord::Migration[4.2]
   def change
     create_table :opsystems do |t|
       t.integer :manufacturer_id

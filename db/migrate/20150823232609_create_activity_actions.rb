@@ -1,4 +1,4 @@
-class CreateActivityActions < ActiveRecord::Migration
+class CreateActivityActions < ActiveRecord::Migration[4.2]
   def change
     create_table :activity_actions do |t|
       t.integer :activity_id

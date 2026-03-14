@@ -1,4 +1,4 @@
-class DeviseCreateViews < ActiveRecord::Migration
+class DeviseCreateViews < ActiveRecord::Migration[4.2]
   def change
     create_table(:views) do |t|
       ## Database authenticatable
